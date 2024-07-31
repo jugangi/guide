@@ -77,10 +77,8 @@
         <ul>
             {% for program, info in programs.items() %}
             <li>
-                <img src="{{ url_for('static', filename='images/' + info.image) }}" alt="{{ program }}">
                 <div class="program-info">
                     <h2><a href="{{ url_for('show_antivirus_program', program_name=program) }}">{{ program }}</a></h2>
-                    <p>{{ info.description }}</p>
                 </div>
             </li>
             {% endfor %}
