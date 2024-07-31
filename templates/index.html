@@ -5,49 +5,80 @@
     <title>홈 페이지</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
         }
+
         header {
-            background-color: #333;
-            color: white;
-            padding: 10px 0;
+            background-color: #444;
+            color: #fff;
+            padding: 20px 0;
             text-align: center;
         }
-        nav ul {
-            list-style-type: none;
-            padding: 0;
+
+        header h1 {
+            margin: 0;
+            font-size: 36px; /* 제목 크기 조정 */
+            font-weight: normal;
         }
-        nav ul li {
-            display: inline;
-            margin-right: 20px;
-        }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 18px;
-            padding: 10px 20px;
-            border-radius: 5px;
-            background-color: #007bff;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        nav ul li a:hover {
-            background-color: #0056b3;
-            color: white;
-            text-decoration: none;
-        }
+
         main {
             padding: 20px;
             text-align: center;
         }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin: 20px 0;
+        }
+
+        .image-container {
+            margin-bottom: 10px; /* 이미지와 링크 사이의 여백 조정 */
+        }
+
+        nav ul li img {
+            width: 300px; /* 이미지 너비 조정 */
+            height: auto; /* 높이는 자동으로 비율에 맞게 조정 */
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        nav ul li img:hover {
+            transform: scale(1.1);
+        }
+
+        .link-button {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 24px; /* 링크 글씨 크기 조정 */
+            padding: 15px 30px;
+            border-radius: 5px;
+            background-color: #007bff;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .link-button:hover {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
         footer {
             text-align: center;
-            padding: 10px 0;
-            background-color: #333;
-            color: white;
+            padding: 15px 0;
+            background-color: #444;
+            color: #fff;
+            font-size: 14px;
         }
     </style>
 </head>
@@ -58,8 +89,22 @@
     <main>
         <nav>
             <ul>
-                <li><a href="{{ url_for('show_hacking_methods') }}">해킹 기법 보기</a></li>
-                <li><a href="{{ url_for('show_antivirus_programs') }}">백신 프로그램 보기</a></li>
+                <li>
+                    <div class="image-container">
+                        <img src="{{ url_for('static', filename='images/hacking_image.jpg') }}" alt="해킹 기법">
+                    </div>
+                    <a href="{{ url_for('show_hacking_methods') }}" class="link-button">
+                        해킹 기법 보기
+                    </a>
+                </li>
+                <li>
+                    <div class="image-container">
+                        <img src="{{ url_for('static', filename='images/antivirus_image.jpg') }}" alt="백신 프로그램">
+                    </div>
+                    <a href="{{ url_for('show_antivirus_programs') }}" class="link-button">
+                        백신 프로그램 보기
+                    </a>
+                </li>
             </ul>
         </nav>
     </main>
