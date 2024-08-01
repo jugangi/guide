@@ -77,6 +77,7 @@
         <ul>
             {% for program, info in programs.items() %}
             <li>
+
                 <div class="program-info">
                     <h2><a href="{{ url_for('show_antivirus_program', program_name=program) }}">{{ program }}</a></h2>
                 </div>
